@@ -1,0 +1,15 @@
+
+
+from django import forms
+from .models import Sensor
+
+
+class SensorForm(forms.ModelForm):
+    class Meta:
+        model = Sensor
+        fields = [
+            'name',
+            'sensor_type',
+            'location',
+            'is_active',
+        ]

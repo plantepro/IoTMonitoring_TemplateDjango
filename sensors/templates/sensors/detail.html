@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ sensor.name }} - Sensor Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f7fa;
+            color: #263445;
+        }
+
+        h1 {
+            color: #286783;
+        }
+
+        .card {
+            max-width: 600px;
+            padding: 24px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #00000012;
+        }
+
+        .field {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .label {
+            color: #667788;
+            display: inline-block;
+            width: 140px;
+        }
+
+        .active {
+            color: #16834a;
+            font-weight: bold;
+        }
+
+        .inactive {
+            color: #b33a3a;
+            font-weight: bold;
+        }
+
+        a {
+            color: #286783;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sensor Details</h1>
+
+    <div class="card">
+        <div class="field">
+            <span class="label">ID</span>
+            {{ sensor.id }}
+        </div>
+
+        <div class="field">
+            <span class="label">Name</span>
+            {{ sensor.name }}
+        </div>
+
+        <div class="field">
+            <span class="label">Sensor Type</span>
+            {{ sensor.sensor_type }}
+        </div>
+
+        <div class="field">
+            <span class="label">Location</span>
+            {{ sensor.location }}
+        </div>
+
+        <div class="field">
+            <span class="label">Status</span>
+
+            {% if sensor.is_active %}
+                <span class="active">Active</span>
+            {% else %}
+                <span class="inactive">Inactive</span>
+            {% endif %}
+        </div>
+
+        <div class="field">
+            <span class="label">Created At</span>
+            {{ sensor.created_at|date:"Y-m-d H:i" }}
+        </div>
+
+        <p>
+            <a href="{% url 'index' %}">← Back to sensor list</a>
+        </p>
+    </div>
+</body>
+</html>

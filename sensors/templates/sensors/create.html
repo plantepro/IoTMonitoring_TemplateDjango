@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Sensor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f7fa;
+            color: #263445;
+        }
+
+        h1 {
+            color: #286783;
+        }
+
+        form {
+            max-width: 500px;
+            padding: 24px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, select {
+            padding: 8px;
+            margin: 6px 0 16px;
+            max-width: 100%;
+        }
+
+        button {
+            padding: 10px 18px;
+            color: white;
+            background: #286783;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .errorlist {
+            color: #b33a3a;
+        }
+
+        a {
+            color: #286783;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Create a Sensor</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Create Sensor</button>
+    </form>
+
+    <p>
+        <a href="{% url 'index' %}">← Back to sensor list</a>
+    </p>
+</body>
+</html>
